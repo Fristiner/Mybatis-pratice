@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+    <!--    id 是这条sql 语句的唯一标识符-->
+    <insert id="insertCar">
+        insert into t_car(car_num, id, brand, guide_price, produce_time, car_type)
+        values (#{k1},null,#{k2},#{k3},#{k4},#{k5});
+    </insert>
+
+    <insert id="InsertCarPojo">
+        insert into t_car(car_num, id, brand, guide_price, produce_time, car_type)
+        values (#{carNum},null,#{Brand},#{guidePrice},#{produceTime},#{carType});
+    </insert>
+
+
+
+
+
+</mapper>

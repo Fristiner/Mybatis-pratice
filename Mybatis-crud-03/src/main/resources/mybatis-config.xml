@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <setting name="logImpl" value="SLF4J"/>
+<!--        要是使用标准的话 需要配置 否者不需要配置  会自动查找-->
+    </settings>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+<!--            事务管理器JDBC|MANAGED 大小写都可以
+                JDBC 事务管理器：  mybatis框架 自己管理事务
+                conn.setAutoCommit(false) 开启事务
+                conn.commit() 手动提交事务
+                底层创建的对象式jdbc tran
+                JDBC 中没有执行conn.setAutoCommit(false);的 默认的AutoCommit()是true;
+                managed 事务管理器
+                 mybatis不在负责事务，将事务管理交给其他容器来进行管理  例如spring
+                 如果没有spring 的话就是没有人管理事务，不会开启事务
+-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/db1"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+<!--        <mapper resource="org/mybatis/example/BlogMapper.xml"/>-->
+<!--        指定xxxMapper.xml文件的路径-->
+<!--        <mapper resource="carMapper.xml"/>-->
+        <mapper resource="carMapper.xml"/>
+        <mapper resource="UserMapper.xml"/>
+    </mappers>
+</configuration>
