@@ -9,7 +9,8 @@
         values (#{k1},null,#{k2},#{k3},#{k4},#{k5});
     </insert>
     <insert id="insertNewCar">
-        insert into
+        insert into t_car(car_num, id, brand, guide_price, produce_time, car_type)
+        values ('2003',null,'biyadi','2002','2023-10-01','chajipaoche');
     </insert>
 
     <insert id="InsertCarPojo">

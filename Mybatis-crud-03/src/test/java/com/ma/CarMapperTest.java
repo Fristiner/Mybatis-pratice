@@ -19,6 +19,7 @@ import java.util.Objects;
 public class CarMapperTest {
 
 
+    // 查询全部数据
     @Test
     public void testSelectAll(){
         SqlSession sqlSession = SqlSessionUtil.openSession();
@@ -43,7 +44,7 @@ public class CarMapperTest {
     public void testSelectById(){
         SqlSession sqlSession = SqlSessionUtil.openSession();
 
-        Car car = sqlSession.selectOne("selectById", 3);
+        Car car = sqlSession.selectOne("selectById", 1);
         System.out.println(car);
 
         sqlSession.commit();
@@ -61,7 +62,7 @@ public class CarMapperTest {
     @Test
     public void testUpdateById(){
         SqlSession sqlSession = SqlSessionUtil.openSession();
-        Car car = new Car(3L,"212","比亚迪",30.2,"2011-2-30","汽车");
+        Car car = new Car(2L,"212","比亚迪",30.2,"2011-2-30","汽车");
 
 
 
@@ -72,11 +73,12 @@ public class CarMapperTest {
     }
 
 
+    // 根据id删除数据
     @Test
     public void testDeleteById(){
         SqlSession sqlSession = SqlSessionUtil.openSession();
 
-        int deleteByid = sqlSession.delete("DeleteById", 5);
+        int deleteByid = sqlSession.delete("DeleteById", 2);
 
         System.out.println(deleteByid);
 

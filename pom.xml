@@ -12,6 +12,8 @@
         <module>Mybatis_demo1</module>
         <module>Mybatis-Junit-02</module>
         <module>Mybatis-crud-03</module>
+        <module>Mybatis-configuration-04</module>
+        <module>Mybatis-Web-05</module>
     </modules>
     <properties>
         <maven.compiler.source>20</maven.compiler.source>
@@ -23,6 +25,21 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.5.10</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>2.1.4</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
         <dependency>
