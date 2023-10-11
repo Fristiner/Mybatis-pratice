@@ -6,6 +6,8 @@ import com.ma.exceptions.TransferException;
 import com.ma.pojo.Account;
 import com.ma.service.AccountService;
 import com.ma.dao.AccountDao;
+import com.ma.utils.SqlSessionUtil;
+import org.apache.ibatis.session.SqlSession;
 
 /**
  * @author ma
@@ -18,6 +20,7 @@ public class AccountServiceImpl implements AccountService {
     private AccountDao accountDao = new AccountDaoImpl();
     @Override
     public void transfer(String fromActno, String toActno, double money) throws MoneyNotEnoughException, TransferException {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
         //1.判断转出账号余额是否充足
         Account fromAct = accountDao.selectByActno(fromActno);
         if (fromAct.getBalance()<money){
@@ -37,6 +40,8 @@ public class AccountServiceImpl implements AccountService {
             System.out.println("转账失败");
             throw new TransferException("转账异常，未知原因");
         }
+        sqlSession.commit();
+        SqlSessionUtil.close(sqlSession);
 
     }
 }

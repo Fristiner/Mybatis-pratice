@@ -31,6 +31,9 @@ public class SqlSessionUtil {
         }
     }
 
+    // 全局的，一个服务器定义一个即可
+
+    private static ThreadLocal<SqlSession> local = new ThreadLocal<>();
 
     /**
      * 公开会话
@@ -39,9 +42,24 @@ public class SqlSessionUtil {
      */
     public static SqlSession openSession(){
 
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+        SqlSession sqlSession = local.get();
+
+        if (sqlSession == null){
+            sqlSession = sqlSessionFactory.openSession();
+            // 绑定将sqlSession 对象绑定到当前线程上
+            local.set(sqlSession);
+        }
 
         return sqlSession;
+    }
+
+    // 关闭sqlSession 对象 从当前线程中移除sqlSession对象
+    public static  void close(SqlSession sqlSession)
+    {
+        if (sqlSession != null){
+            sqlSession.close();
+            local.remove();
+        }
     }
 
 }

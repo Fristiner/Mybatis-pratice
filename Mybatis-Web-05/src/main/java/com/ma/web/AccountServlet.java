@@ -31,14 +31,18 @@ public class AccountServlet extends HttpServlet {
         double money = Double.parseDouble(req.getParameter("money"));
         // 调用service的转账方法
 
+        // 模拟异常
+        String s = null;
+        s.toString();
+
         try {
             accountService.transfer(formActno,toActno,money);
             // 调用View完成展示结果。
             resp.sendRedirect(req.getContextPath()+"/success.html");
-        } catch (MoneyNotEnoughException | TransferException e) {
+        } catch (Exception e){
             resp.sendRedirect(req.getContextPath()+"/error.html");
-
         }
+
 
 
     }

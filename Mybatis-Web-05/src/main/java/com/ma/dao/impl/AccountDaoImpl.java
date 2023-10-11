@@ -18,7 +18,7 @@ public class AccountDaoImpl implements AccountDao {
         SqlSession sqlSession = SqlSessionUtil.openSession();
         Account account = (Account) sqlSession.selectOne("selectByActno", actno);
 //        sqlSession.commit();
-        sqlSession.close();
+//        sqlSession.close();
         return account;
     }
 
@@ -28,8 +28,7 @@ public class AccountDaoImpl implements AccountDao {
 
         int update = sqlSession.update("updateByActno", act);
 
-        sqlSession.commit();
-        sqlSession.close();
+
         return update;
     }
 }
