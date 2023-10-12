@@ -18,6 +18,7 @@ public interface AccountDao {
      * @param actno actno
      * @return projectName:Mybatis-pratice
      */
+    // 使用某个技术动态的生成dao借口的实现类
     Account selectByActno(String actno);
 
     /**
