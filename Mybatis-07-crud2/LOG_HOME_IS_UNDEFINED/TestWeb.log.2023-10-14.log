@@ -1,0 +1,13 @@
+2023-10-14 19:13:46.453 [main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2023-10-14 19:13:46.454 [main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2023-10-14 19:13:46.471 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2023-10-14 19:13:46.471 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2023-10-14 19:13:46.472 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2023-10-14 19:13:46.472 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2023-10-14 19:13:46.518 [main] DEBUG o.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+2023-10-14 19:13:46.790 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 548795052.
+2023-10-14 19:13:46.791 [main] DEBUG o.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@20b5f2ac]
+2023-10-14 19:13:46.794 [main] DEBUG com.ma.mapper.CarMapper.insert - ==>  Preparing: insert into t_car values(null,?,?,?,?,?)
+2023-10-14 19:13:46.814 [main] DEBUG com.ma.mapper.CarMapper.insert - ==> Parameters: 2110(String), 西瓜准(String), 1431241.0(Double), 2023-10-09(String), 国宝机甲(String)
+2023-10-14 19:13:46.816 [main] DEBUG com.ma.mapper.CarMapper.insert - <==    Updates: 1
+2023-10-14 19:13:46.817 [main] DEBUG o.apache.ibatis.transaction.jdbc.JdbcTransaction - Committing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@20b5f2ac]
