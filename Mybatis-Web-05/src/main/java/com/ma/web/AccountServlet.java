@@ -20,7 +20,7 @@ import java.io.IOException;
  */
 
 
-//@WebServlet("/transfer")
+@WebServlet("/transfer")
 public class AccountServlet extends HttpServlet {
     private AccountService accountService = new AccountServiceImpl();
     @Override

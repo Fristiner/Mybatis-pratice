@@ -1,6 +1,5 @@
 package com.ma.service.impl;
 
-import com.ma.dao.impl.AccountDaoImpl;
 import com.ma.exceptions.MoneyNotEnoughException;
 import com.ma.exceptions.TransferException;
 import com.ma.pojo.Account;
@@ -17,7 +16,13 @@ import org.apache.ibatis.session.SqlSession;
  */
 
 public class AccountServiceImpl implements AccountService {
-    private AccountDao accountDao = new AccountDaoImpl();
+//    private AccountDao accountDao = new AccountDaoImpl();
+
+
+//    AccountDao accountDao = (AccountDao) GenerateDaoProxy.generate(SqlSessionUtil.openSession(), AccountDao.class);
+    // mybatis 动态代理
+    private AccountDao accountDao = SqlSessionUtil.openSession().getMapper(AccountDao.class);
+
     @Override
     public void transfer(String fromActno, String toActno, double money) throws MoneyNotEnoughException, TransferException {
         SqlSession sqlSession = SqlSessionUtil.openSession();

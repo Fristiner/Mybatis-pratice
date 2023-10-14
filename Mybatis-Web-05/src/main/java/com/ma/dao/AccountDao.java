@@ -1,6 +1,7 @@
 package com.ma.dao;
 
 import com.ma.pojo.Account;
+import com.ma.utils.SqlSessionUtil;
 
 /**
  * @author ma
@@ -19,7 +20,7 @@ public interface AccountDao {
      * @return projectName:Mybatis-pratice
      */
     // 使用某个技术动态的生成dao借口的实现类
-    Account selectByActno(String actno);
+    Account selectByActno(String arg0);
 
     /**
      * update by actno
@@ -27,5 +28,6 @@ public interface AccountDao {
      * @param act act
      * @return int  1表示成功 其他值表示失败
      */
-    int updateByActno(Account act);
+    int updateByActno(Account arg0);
+
 }

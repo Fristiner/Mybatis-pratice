@@ -15,6 +15,7 @@
         <module>Mybatis-configuration-04</module>
         <module>Mybatis-Web-05</module>
         <module>Mybatis-javassist-06</module>
+        <module>Mybatis-crud2-07</module>
     </modules>
     <properties>
         <maven.compiler.source>20</maven.compiler.source>

@@ -14,21 +14,18 @@ import org.apache.ibatis.session.SqlSession;
 
 public class AccountDaoImpl implements AccountDao {
     @Override
-    public Account selectByActno(String actno) {
+    public Account selectByActno(String arg0) {
         SqlSession sqlSession = SqlSessionUtil.openSession();
-        Account account = (Account) sqlSession.selectOne("selectByActno", actno);
-//        sqlSession.commit();
+        //        sqlSession.commit();
 //        sqlSession.close();
-        return account;
+        return (Account) sqlSession.selectOne("selectByActno", arg0);
     }
 
     @Override
-    public int updateByActno(Account act) {
+    public int updateByActno(Account arg0) {
         SqlSession sqlSession = SqlSessionUtil.openSession();
 
-        int update = sqlSession.update("updateByActno", act);
 
-
-        return update;
+        return sqlSession.update("updateByActno", arg0);
     }
 }

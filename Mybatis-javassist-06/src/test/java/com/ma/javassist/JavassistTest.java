@@ -5,6 +5,7 @@ import javassist.CannotCompileException;
 import javassist.ClassPool;
 import javassist.CtClass;
 import javassist.CtMethod;
+import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
