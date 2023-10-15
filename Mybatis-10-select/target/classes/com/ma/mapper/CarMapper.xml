@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ma.mapper.CarMapper">
+
+    <select id="selectById" resultType="com.ma.pojo.Car">
+        select
+            id ,
+            car_num as carNum,
+            brand,
+            guide_price as guidePrice,
+            produce_time as produceTime,
+            car_type as carType
+        from t_car where id = #{id}
+    </select>
+    <select id="selectByReturnMap" resultType="java.util.Map">
+        select *
+        from t_car where id = #{id}
+    </select>
+    <select id="selectAllReturnListMap" resultType="java.util.Map">
+        select * from t_car
+    </select>
+    <select id="selectAllMapById" resultType="map">
+        select * from t_car
+    </select>
+    <select id="selectAllByResultMap" resultMap="carResultMap">
+        select * from t_car
+    </select>
+<!--    定义一个结果集 映射  在结果集映射中 指定数据库表中的字段的名称和Java类的属性名-->
+<!--    type 属性： 指定pojo类的类名-->
+<!--    id属性 指定resultMap的唯一标识-->
+<!--    -->
+    <resultMap id="carResultMap" type="com.ma.pojo.Car">
+<!--        如果数据库表中有主键时，-->
+<!--        配置一个id标签-->
+        <id property="id" column="id"/>
+<!--        property  pojo 的属性名   column 字段名 -->
+        <result property="carNum" column="car_num"/>
+        <result property="carType" column="car_type"/>
+        <result property="guidePrice" column="guide_price"/>
+        <result property="produceTime" column="produce_time"/>
+        <result property="brand" column="brand"/>
+    </resultMap>
+</mapper>

@@ -17,6 +17,8 @@
         <module>Mybatis-06-javassist</module>
         <module>Mybatis-07-crud2</module>
         <module>Mybatis-08-antic</module>
+        <module>Mybatis-09-param</module>
+        <module>Mybatis-10-select</module>
     </modules>
     <properties>
         <maven.compiler.source>20</maven.compiler.source>
