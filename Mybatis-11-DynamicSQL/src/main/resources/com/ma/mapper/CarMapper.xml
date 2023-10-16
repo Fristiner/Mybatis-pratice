@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ma.mapper.CarMapper">
+    <update id="updateById">
+        update t_car set
+        car_num = #{carNum},
+        brand = #{brand},
+        guide_price = #{guidePrice},
+        car_type = #{carType}
+        where id = #{id}
+    </update>
+
+    <update id="updateBySet">
+        update t_car
+        <set>
+            <if test="carNum != null and carNum != ''">car_num = #{carNum},</if>
+            <if test="brand != null and brand != ''">brand = #{brand},</if>
+            <if test="guidePrice != null and guidePrice != ''">guide_price = #{guidePrice},</if>
+            <if test="produceTime != null and produceTime != ''">produce_time= #{produceTime},</if>
+            <if test="carType != null and carType != ''">car_type = #{carType}</if>
+        </set>
+        where
+            id = #{id}
+    </update>
+
+    <!--    where 标签的使用-->
+    <select id="selectByMultiConditionWhere" resultType="com.ma.pojo.Car">
+        select * from t_car
+        <where>
+            <if test="brand != null and brand != ''">
+                brand like "%"#{param1}"%"
+            </if>
+            <if test="guidePrice != null and guidePrice != ''">
+                and guide_price > #{guidePrice}
+            </if>
+            <if test="carType!=null and carType != ''">
+                and car_type = #{carType}
+            </if>
+        </where>
+
+    </select>
+
+    <!-- 多条件查询 -->
+<!--    如果为ture 将内容拼接到sql语句上去-->
+<!--    test 的值必须为true 或 false-->
+<!--    不能使用&& 只能使用and-->
+
+    <select id="selectByMultiCondition" resultType="com.ma.pojo.Car">
+        select * from t_car where 1 = 1
+        <if test="brand != null and brand != ''">
+           and brand like "%"#{param1}"%"
+        </if>
+        <if test="guidePrice != null and guidePrice != ''">
+            and guide_price > #{guidePrice}
+        </if>
+        <if test="carType!=null and carType != ''">
+            and car_type = #{carType}
+        </if>
+    </select>
+<!--   trim 标签-->
+    <select id="selectByMultiConditionWithTrim" resultType="com.ma.pojo.Car">
+        select * from t_car
+        <trim prefix="where" suffixOverrides="and">
+            <if test="brand != null and brand != ''">
+                 brand like "%"#{param1}"%" and
+            </if>
+            <if test="guidePrice != null and guidePrice != ''">
+                 guide_price > #{guidePrice} and
+            </if>
+            <if test="carType!=null and carType != ''">
+                car_type = #{carType}
+            </if>
+        </trim>
+    </select>
+
+</mapper>

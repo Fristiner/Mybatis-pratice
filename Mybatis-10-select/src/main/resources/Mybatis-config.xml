@@ -7,13 +7,17 @@
 
     <settings>
         <setting name="logImpl" value="SLF4J"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+<!--        驼峰映射
+        java 首字母小写
+-->
     </settings>
 
     <typeAliases>
 
     </typeAliases>
 
-    <environments default="WIN">
+    <environments default="MAC">
         <environment id="MAC">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">

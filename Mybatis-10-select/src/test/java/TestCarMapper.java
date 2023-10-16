@@ -14,6 +14,26 @@ import java.util.Map;
  *
  */
 public class TestCarMapper {
+    // 总记录条数
+    @Test
+    public void testSelectCount(){
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        CarMapper sqlSessionMapper = sqlSession.getMapper(CarMapper.class);
+        Long a = sqlSessionMapper.selectCount();
+        System.out.println("a = " + a);
+    }
+
+
+    // 驼峰映射
+    @Test
+    public void testSelectAllByCamel(){
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        CarMapper sqlSessionMapper = sqlSession.getMapper(CarMapper.class);
+        List<Car> cars =  sqlSessionMapper.selectAllByCamel();
+        System.out.println(cars);
+    }
+
+
     @Test
     public void testSelectAllMapById(){
         SqlSession sqlSession = SqlSessionUtil.openSession();

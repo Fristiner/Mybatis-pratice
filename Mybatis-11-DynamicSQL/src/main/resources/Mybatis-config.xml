@@ -8,13 +8,10 @@
     <settings>
         <setting name="logImpl" value="SLF4J"/>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-<!--        驼峰映射
-        java 首字母小写
--->
     </settings>
 
     <typeAliases>
-
+        <package name="com.ma.pojo"/>
     </typeAliases>
 
     <environments default="MAC">

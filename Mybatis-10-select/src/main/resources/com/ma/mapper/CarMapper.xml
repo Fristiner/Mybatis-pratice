@@ -27,7 +27,13 @@
     <select id="selectAllByResultMap" resultMap="carResultMap">
         select * from t_car
     </select>
-<!--    定义一个结果集 映射  在结果集映射中 指定数据库表中的字段的名称和Java类的属性名-->
+    <select id="selectAllByCamel" resultType="com.ma.pojo.Car">
+        select * from t_car
+    </select>
+    <select id="selectCount" resultType="java.lang.Long">
+        select count(*) from t_car
+    </select>
+    <!--    定义一个结果集 映射  在结果集映射中 指定数据库表中的字段的名称和Java类的属性名-->
 <!--    type 属性： 指定pojo类的类名-->
 <!--    id属性 指定resultMap的唯一标识-->
 <!--    -->

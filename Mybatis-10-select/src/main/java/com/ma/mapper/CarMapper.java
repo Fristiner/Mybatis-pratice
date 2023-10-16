@@ -1,10 +1,9 @@
 package com.ma.mapper;
 
 import com.ma.pojo.Car;
-import lombok.Value;
+
 import org.apache.ibatis.annotations.MapKey;
 
-import java.security.Key;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +14,10 @@ import java.util.Map;
  *
  */
 public interface CarMapper {
+    // 返回总记录条数
+    Long selectCount();
+
+    List<Car> selectAllByCamel();
 
     /**
      * 查询所有的car信息
