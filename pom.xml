@@ -20,6 +20,7 @@
         <module>Mybatis-09-param</module>
         <module>Mybatis-10-select</module>
         <module>Mybatis-11-DynamicSQL</module>
+        <module>Mybatis-12-annotation</module>
     </modules>
     <properties>
         <maven.compiler.source>20</maven.compiler.source>
@@ -27,6 +28,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
+
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
