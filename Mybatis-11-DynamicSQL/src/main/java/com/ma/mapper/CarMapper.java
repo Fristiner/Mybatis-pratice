@@ -16,6 +16,47 @@ import java.util.Map;
 public interface CarMapper {
 
 
+    /**
+     * 按 IDS2 删除
+     * 按 ID 删除
+     * 使用or 关键字
+     * @param ids IDS
+     * @return int
+     */
+    int deleteByIds2(@Param("ids") Long[] ids);
+
+
+    Car selectById(Long id);
+
+    /**
+     * 插入批次
+     *
+     * @param cars 汽车
+     * @return int
+     */
+    // 批量插入
+    int insertBatch(@Param("cars") List<Car> cars);
+
+    /**
+     * 按 ID 删除 批量删除
+     * foreach标签
+     *
+     * @param ids IDS
+     * @return int
+     */
+    int deleteByIds(@Param("ids") Long[] ids);
+
+    /**
+     * 选择方式
+     *
+     * @param brand      品牌
+     * @param guidePrice 指导价格
+     * @param carType    车型
+     * @return 列表<汽车>
+     */
+    List<Car> selectByChoose(@Param("brand") String brand,@Param("guidePrice") String guidePrice,@Param("carType") String carType);
+
+
     int updateBySet(Car car);
     /**
      * update by id

@@ -14,7 +14,7 @@
         <package name="com.ma.pojo"/>
     </typeAliases>
 
-    <environments default="MAC">
+    <environments default="WIN">
         <environment id="MAC">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
