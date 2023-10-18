@@ -15,3 +15,16 @@ create table t_student(
     sex char(1)
 );
 
+
+create table t_clazz(
+    cid int primary key not null ,
+    cname varchar(255)
+);
+
+create table t_stu(
+    sid int primary key not null ,
+    sname varchar(255),
+    cid int
+);
+
+

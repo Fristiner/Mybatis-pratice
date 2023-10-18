@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ma.mapper.StuMapper">
+    <!--分布查询 第一步 根据学生id 查询学生信息-->
+    <select id="selectByIdStep1" resultMap="StuResultMapByStep">
+        select
+        sid,sname,cid
+        from t_stu where sid = #{sid}
+    </select>
+    <resultMap id="StuResultMapByStep" type="com.ma.pojo.Stu">
+        <id column="sid" property="sid"/>
+        <result property="sname" column="sname"/>
+<!--        <result property="clazz.cid" column="cid"/>-->
+        <!--select 需要指定第二部sql语句的id-->
+        <!--column 传递的值-->
+        <association property="clazz"
+                     select="com.ma.mapper.ClazzMapper.selectByIdStep2"
+                     column="cid"/>
+<!--                     fetchType="lazy"/>-->
+    </resultMap>
+
+    <!--多对一映射第二种方式：association -->
+    <select id="selectByIdAssociation" resultMap="StuResultMapAssociation">
+        select
+        s.sid,s.sname,c.cid,c.cname
+        from
+        t_stu as s left join t_clazz as c on s.cid = c.cid
+        where
+        s.sid = #{sid}
+    </select>
+    <resultMap id="StuResultMapAssociation" type="Stu">
+        <id column="sid" property="sid"/>
+        <result property="sname" column="sname"/>
+        <!--association 关联 一个stu对象关联一个clazz对象
+                property: 提供要映射的pojo类的属性名
+                javaType: 提供要映射的java类型
+        -->
+        <!---->
+        <!---->
+        <association property="clazz" javaType="com.ma.pojo.Clazz">
+            <id property="cid" column="cid"/>
+            <result property="cname" column="cname"/>
+        </association>
+    </resultMap>
+
+    <!--多对一映射第一种方式，一条sql语句，级联属性映射-->
+    <select id="selectById" resultMap="StuResultMap">
+        select
+            s.sid,s.sname,c.cid,c.cname
+        from
+            t_stu as s left join t_clazz as c on s.cid = c.cid
+        where
+            s.sid = #{sid}
+    </select>
+
+
+
+    <resultMap id="StuResultMap" type="Stu">
+        <id column="sid" property="sid"/>
+        <result property="sname" column="sname"/>
+        <result property="clazz.cid" column="cid"/>
+        <result property="clazz.cname" column="cname"/>
+    </resultMap>
+</mapper>
